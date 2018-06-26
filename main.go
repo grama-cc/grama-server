@@ -52,6 +52,7 @@ func AuthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Expose-Headers", "*")
+	w.WriteHeader(200)
 
 	type Response struct {
 		Logged bool `json:"logged"`
@@ -69,12 +70,8 @@ func AuthHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if userToken == token {
-		w.WriteHeader(200)
 		json.NewEncoder(w).Encode(online)
-		return
 	} else {
-		w.WriteHeader(401)
 		json.NewEncoder(w).Encode(offline)
-		return
 	}
 }
