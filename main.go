@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"net/http"
 	"strings"
 )
@@ -18,7 +19,7 @@ func main() {
 	router.HandleFunc("/login", LoginHandler)
 
 	server := &http.Server{
-		Addr:    ":80",
+		Addr:    ":" + os.Getenv("PORT"),
 		Handler: router,
 	}
 
