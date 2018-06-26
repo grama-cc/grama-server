@@ -1,1 +1,1 @@
-web: ./grama-server
+web: grama-server
