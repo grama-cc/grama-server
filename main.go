@@ -18,11 +18,11 @@ func main() {
 	router.HandleFunc("/login", LoginHandler)
 
 	server := &http.Server{
-		Addr:    ":5000",
+		Addr:    ":80",
 		Handler: router,
 	}
 
-	log.Printf("Server is running on http://localhost:5000/")
+	log.Printf("Server is running")
 	log.Fatal(server.ListenAndServe())
 }
 
