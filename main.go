@@ -71,8 +71,10 @@ func AuthHandler(w http.ResponseWriter, r *http.Request) {
 	if userToken == token {
 		w.WriteHeader(200)
 		json.NewEncoder(w).Encode(online)
+		return
 	} else {
-		w.WriteHeader(200)
+		w.WriteHeader(401)
 		json.NewEncoder(w).Encode(offline)
+		return
 	}
 }
