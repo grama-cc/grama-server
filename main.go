@@ -29,7 +29,7 @@ func main() {
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	
+
 	fmt.Fprintf(w, "Nada aqui, mas você pode acessar /login e /auth, tem coisa lá =)")
 }
 
@@ -50,6 +50,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 func AuthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers": "Authorization")
 
 	type Response struct {
 		Logged bool `json:"logged"`
