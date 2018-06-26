@@ -60,7 +60,7 @@ func AuthHandler(w http.ResponseWriter, r *http.Request) {
 	online := Response{true}
 	offline := Response{false}
 
-	auth := strings.Fields(r.Header.Get("authorization"))
+	auth := strings.Fields(r.Header.Get("Authorization"))
 
 	var userToken string
 
@@ -72,7 +72,7 @@ func AuthHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(200)
 		json.NewEncoder(w).Encode(online)
 	} else {
-		w.WriteHeader(401)
+		w.WriteHeader(200)
 		json.NewEncoder(w).Encode(offline)
 	}
 }
